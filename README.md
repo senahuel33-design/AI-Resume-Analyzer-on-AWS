@@ -22,7 +22,7 @@ The project showcases:
 
 # Architecture Diagram
 
-(Add architecture image here)
+![Architecture](<Architecture/Architecture.png>)
 
 ---
 
