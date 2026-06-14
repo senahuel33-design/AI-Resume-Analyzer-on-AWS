@@ -20,7 +20,19 @@ The project showcases:
 
 ---
 
-# Architecture Diagram
+## Architecture Overview
+
+The system follows a modern cloud-native architecture:
+
+- User uploads a resume via API
+- FastAPI backend processes the file
+- PDF text is extracted
+- AI model analyzes the content
+- Response is returned to the user
+- Infrastructure is deployed using Terraform
+- CI/CD automates deployment
+
+📸 **Architecture Diagram**
 
 ![Architecture](<Architecture/Architecture.png>)
 
