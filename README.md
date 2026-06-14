@@ -158,6 +158,24 @@ Create a `.env` file:
 OPENAI_API_KEY=your_api_key
 AWS_REGION=your_region
 ```
+## Step 1: Project Initialization (Architecture Setup)
+
+The first step was to initialize the base structure of the FastAPI application. This ensures a clean, modular, and scalable foundation for future development, CI/CD integration, and AWS deployment.
+
+### Project Structure
+
+```text
+ai-resume-analyzer/
+│
+├── app/
+│   ├── main.py
+│   ├── utils.py
+│   ├── templates/
+│   └── static/
+│
+├── requirements.txt
+├── .env
+└── README.md
 
 ## Run Application
 
