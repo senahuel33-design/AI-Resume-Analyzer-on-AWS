@@ -245,7 +245,7 @@ Excluded files:
 
 ### Screenshot
 
-![Docker Ignore](Screenshots/Monitoring & Logging/dockerignore.png)
+![Docker Ignore](<Screenshots/Containerization with Docker/dockerignore.png>)
 
 ---
 
@@ -263,7 +263,7 @@ Key configuration:
 
 ### Screenshot
 
-![Dockerfile](Screenshots/Monitoring & Logging/Dockerfile.png)
+![Dockerfile](<Screenshots/Containerization with Docker/Dockerfile.png>)
 
 ---
 
@@ -277,7 +277,7 @@ docker build -t ai-resume-analyzer:v1 .
 
 ### Screenshot
 
-![Docker Build](Screenshots/Monitoring & Logging/docker-build.png)
+![Docker Build](<Screenshots/Containerization with Docker/docker-build.png>)
 
 ---
 
@@ -295,7 +295,7 @@ docker run -d \
 
 ### Screenshot
 
-![Docker Container Running](Screenshots/Monitoring & Logging/docker-run.png)
+![Docker Container Running](<Screenshots/Containerization with Docker/docker-run.png>)
 
 ---
 
@@ -316,10 +316,10 @@ docker ps
 
 ### Screenshots
 
-![Docker PS](Screenshots/Monitoring & Logging/04_docker_ps_validation.png)
+![Docker PS](<Screenshots/Containerization with Docker/04_docker_ps_validation.png>)
 
-![Swagger UI Docker](Screenshots/Monitoring & Logging/swagger-ui-docker.png)
-![Swagger UI Docker 2](Screenshots/Monitoring & Logging/swagger-ui-docker.png 2.png)
+![Swagger UI Docker](<Screenshots/Containerization with Docker/swagger-ui-docker.png>)
+![Swagger UI Docker 2](<Screenshots/Containerization with Docker/swagger-ui-docker.png 2.png>)
 
 ---
 
