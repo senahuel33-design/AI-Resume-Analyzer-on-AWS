@@ -341,6 +341,123 @@ At the end of this phase, the application was fully containerized and capable of
 
 Deploy the containerized application using cloud infrastructure provisioned with Terraform and AWS services.
 
+# Phase 3: Frontend Development
+
+## Goal
+
+Build a simple and responsive web interface that allows users to upload resumes and view AI-generated feedback directly in the browser.
+
+---
+
+## Step 1: Frontend Structure
+
+Created a dedicated frontend directory to separate the user interface from the backend API.
+
+```text
+frontend/
+├── index.html
+├── style.css
+└── app.js
+```
+
+### Screenshot
+
+![Frontend Structure](<Screenshots/Frontend Development/frontend-structure.png>)
+
+---
+
+## Step 2: Build the User Interface
+
+Developed a clean and responsive interface using HTML and CSS.
+
+Features:
+
+* Drag-and-drop file upload area
+* Resume upload button
+* Results display section
+* Responsive layout for desktop and mobile
+
+### Screenshot
+
+![Frontend UI](<Screenshots/Frontend Development/frontend-ui.png>)
+
+---
+
+## Step 3: Styling and User Experience
+
+Implemented custom styling to improve usability and readability.
+
+Features:
+
+* Modern card layout
+* Responsive design
+* Interactive upload area
+* Loading state support
+* Form validation feedback
+
+### Screenshot
+
+![Frontend Styling](<Screenshots/Frontend Development/upload-screen.png>)
+
+---
+
+## Step 4: Connect Frontend to FastAPI Backend
+
+Implemented JavaScript functionality to communicate with the backend API.
+
+The frontend:
+
+* Captures uploaded PDF files
+* Sends requests to the `/analyze` endpoint
+* Receives AI-generated feedback
+* Displays analysis results dynamically
+
+### Screenshot
+
+![JavaScript Integration](<Screenshots/Frontend Development/frontend-js.png>)
+
+---
+
+## Step 5: End-to-End Testing
+
+Validated the complete workflow between frontend and backend.
+
+Workflow:
+
+1. User uploads a PDF resume
+2. Frontend sends request to FastAPI API
+3. Backend extracts resume content
+4. AI analyzes the resume
+5. Results are displayed in the browser
+
+### Screenshots
+
+![Upload Screen](<Screenshots/Frontend Development/upload-screen.png>)
+
+![Analysis Results](<Screenshots/Frontend Development/frontend-results.png>)
+
+---
+
+## Outcome
+
+At the end of this phase, the application provided a complete user experience:
+
+* Resume upload through a web interface
+* Real-time communication with the backend API
+* Dynamic display of AI-generated feedback
+* Responsive design for improved usability
+
+### Skills Demonstrated
+
+* HTML5
+* CSS3
+* JavaScript
+* Frontend Development
+* API Integration
+* Asynchronous Requests (Fetch API)
+* User Experience Design
+* Full-Stack Application Development
+
 # AWS Infrastructure
 
 The following AWS resources are provisioned using Terraform:
