@@ -222,6 +222,124 @@ terraform apply
 ```
 
 ---
+# Phase 2: Containerization with Docker
+
+## Goal
+
+Containerize the FastAPI application to ensure consistent execution across development, testing, and cloud environments.
+
+Docker allows the application and its dependencies to be packaged into a portable image that can be deployed reliably to AWS ECS later in the project.
+
+---
+
+## Step 1: Docker Build Optimization
+
+Created a `.dockerignore` file to exclude unnecessary files from the Docker build context.
+
+Excluded files:
+
+* Virtual environments
+* Environment files
+* Python cache files
+* Git metadata
+
+### Screenshot
+
+![Docker Ignore](Screenshots/Monitoring & Logging/dockerignore.png)
+
+---
+
+## Step 2: Create the Dockerfile
+
+Built a production-ready Docker image using the official Python 3.12 slim image.
+
+Key configuration:
+
+* Python 3.12 runtime
+* Dependency installation through `requirements.txt`
+* Application source code copied into the container
+* Port 8000 exposed
+* Uvicorn configured as the application server
+
+### Screenshot
+
+![Dockerfile](Screenshots/Monitoring & Logging/Dockerfile.png)
+
+---
+
+## Step 3: Build the Docker Image
+
+Built the application image locally using Docker.
+
+```bash
+docker build -t ai-resume-analyzer:v1 .
+```
+
+### Screenshot
+
+![Docker Build](Screenshots/Monitoring & Logging/docker-build.png)
+
+---
+
+## Step 4: Run the Container
+
+Started the container locally and passed environment variables securely using the `.env` file.
+
+```bash
+docker run -d \
+  --name resume-api-container \
+  -p 8000:8000 \
+  --env-file .env \
+  ai-resume-analyzer:v1
+```
+
+### Screenshot
+
+![Docker Container Running](Screenshots/Monitoring & Logging/docker-run.png)
+
+---
+
+## Step 5: Validate the Containerized Application
+
+Verified that the application was running correctly inside the Docker container.
+
+Checks performed:
+
+* Container status validation
+* API accessibility
+* Swagger UI functionality
+* Resume analysis endpoint testing
+
+```bash
+docker ps
+```
+
+### Screenshots
+
+![Docker PS](Screenshots/Monitoring & Logging/04_docker_ps_validation.png)
+
+![Swagger UI Docker](Screenshots/Monitoring & Logging/swagger-ui-docker.png)
+![Swagger UI Docker 2](Screenshots/Monitoring & Logging/swagger-ui-docker.png 2.png)
+
+---
+
+## Outcome
+
+At the end of this phase, the application was fully containerized and capable of running consistently inside a Docker environment.
+
+### Skills Demonstrated
+
+* Docker
+* Containerization
+* Image Creation
+* Environment Variable Management
+* FastAPI Deployment
+* Application Packaging
+* Local Container Testing
+
+### Next Phase
+
+Deploy the containerized application using cloud infrastructure provisioned with Terraform and AWS services.
 
 # AWS Infrastructure
 
