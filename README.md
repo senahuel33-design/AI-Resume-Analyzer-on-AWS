@@ -424,7 +424,7 @@ Workflow:
 
 ---
 
-## CI/CD Pipeline with GitHub Actions
+## Phase 4: CI/CD Pipeline with GitHub Actions
 
 This project includes a GitHub Actions workflow that automatically validates the application whenever code is pushed to the repository.
 
@@ -529,26 +529,6 @@ The CI/CD pipeline automates:
 
 ---
 
-# Screenshots
-
-## Application UI
-
-(Add screenshot)
-
-## ECS Deployment
-
-(Add screenshot)
-
-## CloudWatch Logs
-
-(Add screenshot)
-
-## GitHub Actions Pipeline
-
-(Add screenshot)
-
----
-
 # Lessons Learned
 
 During this project I improved my understanding of:
@@ -579,5 +559,5 @@ During this project I improved my understanding of:
 
 Nahuel Egidi
 
-* GitHub: https://github.com/YOUR-USERNAME
-* LinkedIn: https://linkedin.com/in/YOUR-PROFILE
+* GitHub: https://github.com/senahuel33-design/AI-Resume-Analyzer-on-AWS
+* LinkedIn: https://www.linkedin.com/in/nahuel-egidi-21b8202aa/
