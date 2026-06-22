@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📄 AI Resume Analyzer</h1>
+            <p>Upload your resume PDF to get real-time structural feedback from Gemini.</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <form id="uploadForm">
+                    <div class="drop-zone">
+                        <span class="drop-zone__prompt">Drag & drop your CV PDF here or click to browse</span>
+                        <input type="file" name="file" id="resumeFile" class="drop-zone__input" accept=".pdf" required>
+                    </div>
+                    <button type="submit" id="submitBtn">Analyze Resume</button>
+                </form>
+            </div>
+
+            <div class="results-section hidden" id="resultsSection">
+                <h2>📈 Optimization Metrics & Feedback</h2>
+                <div id="loading" class="hidden">Analyzing your data... Please wait...</div>
+                <div id="analysisOutput" class="analysis-box"></div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
