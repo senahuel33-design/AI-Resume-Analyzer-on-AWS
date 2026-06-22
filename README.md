@@ -323,20 +323,6 @@ docker ps
 
 ---
 
-## Outcome
-
-At the end of this phase, the application was fully containerized and capable of running consistently inside a Docker environment.
-
-### Skills Demonstrated
-
-* Docker
-* Containerization
-* Image Creation
-* Environment Variable Management
-* FastAPI Deployment
-* Application Packaging
-* Local Container Testing
-
 ### Next Phase
 
 Deploy the containerized application using cloud infrastructure provisioned with Terraform and AWS services.
@@ -437,6 +423,42 @@ Workflow:
 ![Analysis Results](<Screenshots/Frontend Development/frontend-results.png>)
 
 ---
+
+## CI/CD Pipeline with GitHub Actions
+
+This project includes a GitHub Actions workflow that automatically validates the application whenever code is pushed to the repository.
+
+### Workflow Features
+
+- Runs automatically on every push to the main branch
+- Creates a clean Ubuntu runner
+- Installs project dependencies
+- Builds the Docker image
+- Verifies that the application can be successfully containerized
+
+### Workflow File
+
+```text
+.github/workflows/deploy.yml
+```
+
+### Pipeline Execution
+
+![GitHub Actions Pipeline](<Screenshots/CICD Pipeline with GitHub Actions/github-actions-success.png>)
+## Outcome
+
+At the end of this phase, the application was fully containerized and capable of running consistently inside a Docker environment.
+
+### Skills Demonstrated
+
+* Docker
+* Containerization
+* Image Creation
+* Environment Variable Management
+* FastAPI Deployment
+* Application Packaging
+* Local Container Testing
+
 
 ## Outcome
 
