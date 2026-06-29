@@ -40,7 +40,7 @@ The system follows a modern cloud-native architecture:
 
 # Live Application
 
-http://YOUR-APPLICATION-URL
+[http://YOUR-APPLICATION-URL](http://34.242.109.7:8000)
 
 ---
 
