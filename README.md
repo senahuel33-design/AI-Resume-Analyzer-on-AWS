@@ -1,5 +1,5 @@
 # AI-Resume-Analyzer-on-AWS
-This project demonstrates a production-style AI-powered cloud application deployed on AWS using modern DevOps and Infrastructure as Code practices.
+AI Resume Analyzer on AWS is a production-style cloud application that analyzes PDF resumes using AI. The application is built with FastAPI, containerized with Docker, deployed on AWS infrastructure, automated with GitHub Actions, and provisioned using Terraform. This project demonstrates modern Cloud and DevOps engineering practices from local development to automated deployment.
 
 The application allows users to upload a resume/CV and receive AI-generated feedback including:
 
@@ -40,7 +40,7 @@ The system follows a modern cloud-native architecture:
 
 # Live Application
 
-http://YOUR-APPLICATION-URL
+[http://AI-Resume-Analyzer-on-AWS]([http://34.242.109.7:8000](http://34.242.109.7:8000/docs))
 
 ---
 
@@ -181,44 +181,6 @@ ai-resume-analyzer/
 
 ```bash
 uvicorn app.main:app --reload
-```
-
----
-
-# Docker Setup
-
-## Build Docker Image
-
-```bash
-docker build -t ai-resume-analyzer .
-```
-
-## Run Container
-
-```bash
-docker run -p 8000:8000 ai-resume-analyzer
-```
-
----
-
-# Terraform Deployment
-
-## Initialize Terraform
-
-```bash
-terraform init
-```
-
-## Preview Infrastructure
-
-```bash
-terraform plan
-```
-
-## Deploy Infrastructure
-
-```bash
-terraform apply
 ```
 
 ---
