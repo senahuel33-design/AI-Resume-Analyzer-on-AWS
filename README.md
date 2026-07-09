@@ -411,6 +411,18 @@ This project includes a GitHub Actions workflow that automatically validates the
 
 At the end of this phase, the application was fully containerized and capable of running consistently inside a Docker environment.
 
+### 🛠️ Troubleshooting & Lessons Learned
+
+During the initial pipeline configuration, the workflow deployment script failed with syntax validation errors:
+* `Invalid workflow file: .github/workflows/deploy.yml` 
+* `error: 'name' is already defined, 'on' is already defined, 'jobs' is already defined`
+
+#### Root Cause:
+When configuring the workflows via the Ubuntu terminal using `nano`, the deployment steps were accidentally pasted into an existing configuration file that already contained a separate code validation/testing script. Because YAML structure restricts duplicate root-level blocks (like `name`, `on`, and `jobs`), the GitHub parser threw an exception and refused to execute.
+
+#### Resolution:
+The file architecture was separated. The deployment configuration was completely isolated into its own dedicated file (`.github/workflows/deploy.yml`), while keeping the code validation test script independent. This allows both pipelines to execute simultaneously and cleanly on every code push.
+
 ### Skills Demonstrated
 
 * Docker
