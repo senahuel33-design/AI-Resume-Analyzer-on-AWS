@@ -40,7 +40,7 @@ The system follows a modern cloud-native architecture:
 
 # Live Application
 
-[http://AI-Resume-Analyzer-on-AWS]([http://34.242.109.7:8000](http://34.242.109.7:8000/docs))
+[http://AI-Resume-Analyzer-on-AWS](<[http://34.242.109.7:8000](http://34.242.109.7:8000/docs)>)
 
 ---
 
