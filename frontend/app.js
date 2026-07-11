@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Fetch request straight to your Dockerized port 8000
-            const response = await fetch('http://localhost:8000/analyze', {
+            const response = await fetch('http://34.242.109.7:8000/analyze', {
                 method: 'POST',
                 body: formData
             });
