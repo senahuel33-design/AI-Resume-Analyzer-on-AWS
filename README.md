@@ -100,16 +100,18 @@ The system follows a modern cloud-native architecture:
 # Project Structure
 
 ```text
-project/
+ai-resume-analyzer/
 │
 ├── app/
-│   ├── main.py
-│   ├── routes/
-│   ├── services/
-│   ├── templates/
-│   └── static/
+│   ├── main.py            # FastAPI backend logic & API routes
+│   └── utils.py           # Helper functions (text extraction, AI handling)
 │
-├── terraform/
+├── frontend/              # Phase 3: Frontend Web Interface
+│   ├── index.html         # Main UI structure
+│   ├── style.css          # UI custom styling & responsiveness
+│   └── app.js             # JavaScript handling fetch calls to AWS
+│
+├── terraform/             # IaC Cloud Provisioning
 │   ├── main.tf
 │   ├── variables.tf
 │   ├── outputs.tf
@@ -117,13 +119,12 @@ project/
 │
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml
+│       └── deploy.yml     # GitHub Actions automated CI/CD pipeline
 │
-├── Dockerfile
-├── docker-compose.yml
-├── requirements.txt
-├── .env.example
-└── README.md
+├── Dockerfile             # Production container configurations
+├── requirements.txt       # Python backend dependencies
+├── .env                   # Local secure credentials (ignored by git)
+└── README.md              # Project documentation
 ```
 
 ---
