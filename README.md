@@ -20,17 +20,12 @@ The project showcases:
 
 ---
 
-## Architecture Overview
+## 🏗️ Architecture Overview
+The application is built on a serverless, containerized AWS architecture:
 
-The system follows a modern cloud-native architecture:
-
-- User uploads a resume via API
-- FastAPI backend processes the file
-- PDF text is extracted
-- AI model analyzes the content
-- Response is returned to the user
-- Infrastructure is deployed using Terraform
-- CI/CD automates deployment
+* **Traffic Routing:** An Application Load Balancer (ALB) routes public HTTP traffic to the backend.
+* **Compute Layer:** Runs as a containerized FastAPI service on AWS ECS Fargate inside isolated subnets.
+* **Infrastructure & Deployment:** Provisioned via Terraform IaC and deployed automatically using GitHub Actions.
 
 📸 **Architecture Diagram**
 
@@ -38,78 +33,31 @@ The system follows a modern cloud-native architecture:
 
 ---
 
-# Live Application
+# 🌐 Live Application
 
-[http://AI-Resume-Analyzer-on-AWS](<[http://34.242.109.7:8000](http://34.242.109.7:8000/docs)>)
+🚀 **Live Application:** [Access App Here](http://ai-resume-alb-578273199481.eu-west-1.elb.amazonaws.com)
 
----
-
-# Features
-
-* Upload PDF resumes
-* AI-powered resume analysis
-* Dockerized application
-* Automated CI/CD pipeline
-* AWS cloud deployment
-* Infrastructure as Code with Terraform
-* CloudWatch logging
-* Secure environment variable handling
+*Note: Deployed publicly on AWS via Application Load Balancer.*
 
 ---
 
-# Tech Stack
+## Step 1: Project Initialization (Architecture Setup)
 
-## Backend
+The first step was to initialize the base structure of the FastAPI application. This ensures a clean, modular, and scalable foundation for future development, CI/CD integration, and AWS deployment.
 
-* Python
-* FastAPI
-
-## DevOps
-
-* Docker
-* GitHub Actions
-* Terraform
-
-## AWS Services
-
-* ECS Fargate
-* ECR
-* S3
-* IAM
-* CloudWatch
-* Application Load Balancer
-
-## AI Integration
-
-* OpenAI API
-
----
-
-# CI/CD Workflow
-
-1. Developer pushes code to GitHub
-2. GitHub Actions pipeline starts automatically
-3. Docker image is built and tested
-4. Docker image is pushed to Amazon ECR
-5. Terraform provisions or updates infrastructure
-6. ECS Fargate deploys the updated container
-7. Application becomes publicly accessible through the Load Balancer
-
----
-
-# Project Structure
+### Project Structure
 
 ```text
-ai-resume-analyzer/
+AI-Resume-Analyzer-on-AWS/
 │
 ├── app/
 │   ├── main.py            # FastAPI backend logic & API routes
 │   └── utils.py           # Helper functions (text extraction, AI handling)
 │
-├── frontend/              # Phase 3: Frontend Web Interface
+├── frontend/              # Frontend Web Interface
 │   ├── index.html         # Main UI structure
 │   ├── style.css          # UI custom styling & responsiveness
-│   └── app.js             # JavaScript handling fetch calls to AWS
+│   └── app.js             # JavaScript handling fetch calls
 │
 ├── terraform/             # IaC Cloud Provisioning
 │   ├── main.tf
@@ -123,67 +71,26 @@ ai-resume-analyzer/
 │
 ├── Dockerfile             # Production container configurations
 ├── requirements.txt       # Python backend dependencies
-├── .env                   # Local secure credentials (ignored by git)
+├── .env                   # Local environment variables
 └── README.md              # Project documentation
 ```
-
----
-
-# Local Development Setup
-
-## Clone Repository
+## Local Development Setup
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
-cd YOUR-REPOSITORY
-```
+# Clone the repository
+git clone [https://github.com/senahuel33-design/AI-Resume-Analyzer-on-AWS.git](https://github.com/senahuel33-design/AI-Resume-Analyzer-on-AWS.git)
+cd AI-Resume-Analyzer-on-AWS
 
-## Create Virtual Environment
-
-```bash
+# Set up virtual environment
 python -m venv venv
-source venv/bin/activate
-```
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-## Install Dependencies
-
-```bash
+# Install dependencies
 pip install -r requirements.txt
-```
 
-## Configure Environment Variables
-
-Create a `.env` file:
-
-```env
-OPENAI_API_KEY=your_api_key
-AWS_REGION=your_region
-```
-## Step 1: Project Initialization (Architecture Setup)
-
-The first step was to initialize the base structure of the FastAPI application. This ensures a clean, modular, and scalable foundation for future development, CI/CD integration, and AWS deployment.
-
-### Project Structure
-
-```text
-ai-resume-analyzer/
-│
-├── app/
-│   ├── main.py
-│   ├── utils.py
-│   ├── templates/
-│   └── static/
-│
-├── requirements.txt
-├── .env
-└── README.md
-
-## Run Application
-
-```bash
+# Run backend server
 uvicorn app.main:app --reload
 ```
-
 ---
 # Phase 2: Containerization with Docker
 
@@ -410,7 +317,7 @@ This project includes a GitHub Actions workflow that automatically validates the
 ![GitHub Actions Pipeline](<Screenshots/CICD Pipeline with GitHub Actions/github-actions-success.png>)
 ## Outcome
 
-At the end of this phase, the application was fully containerized and capable of running consistently inside a Docker environment.
+At the end of this phase, the application achieved full CI/CD automation. Any changes pushed to the `main` branch automatically trigger GitHub Actions to run unit tests, build the Docker container, push the image to AWS ECR, and deploy the updated tasks to the AWS ECS Fargate cluster with zero manual intervention.
 
 ### 🛠️ Troubleshooting & Lessons Learned
 
@@ -424,115 +331,38 @@ When configuring the workflows via the Ubuntu terminal using `nano`, the deploym
 #### Resolution:
 The file architecture was separated. The deployment configuration was completely isolated into its own dedicated file (`.github/workflows/deploy.yml`), while keeping the code validation test script independent. This allows both pipelines to execute simultaneously and cleanly on every code push.
 
-### Skills Demonstrated
+### 🛠️ Key Technologies & AWS Architecture
 
-* Docker
-* Containerization
-* Image Creation
-* Environment Variable Management
-* FastAPI Deployment
-* Application Packaging
-* Local Container Testing
-
-
-## Outcome
-
-At the end of this phase, the application provided a complete user experience:
-
-* Resume upload through a web interface
-* Real-time communication with the backend API
-* Dynamic display of AI-generated feedback
-* Responsive design for improved usability
-
-### Skills Demonstrated
-
-* HTML5
-* CSS3
-* JavaScript
-* Frontend Development
-* API Integration
-* Asynchronous Requests (Fetch API)
-* User Experience Design
-* Full-Stack Application Development
-
-# AWS Infrastructure
-
-The following AWS resources are provisioned using Terraform:
-
-* VPC
-* Public Subnets
-* ECS Cluster
-* ECS Service
-* ECS Task Definition
-* ECR Repository
-* Application Load Balancer
-* IAM Roles and Policies
-* CloudWatch Log Groups
-* S3 Bucket
+* **Infrastructure & Compute:** AWS VPC, ECS Fargate, ECR, Application Load Balancer (ALB), S3.
+* **Frontend & Backend:** HTML5, CSS3, JavaScript (Fetch API), FastAPI, Uvicorn, Docker.
+* **DevOps & Observability:** Terraform (IaC), GitHub Actions (CI/CD), AWS CloudWatch, IAM (Least Privilege).
 
 ---
 
-# GitHub Actions Pipeline
+# 🚀 CI/CD & Cloud Security
 
-The CI/CD pipeline automates:
+### Automated Pipeline
+On `git push`, GitHub Actions automatically triggers: **Image Build → Container Tests → Push to ECR → Service Rollout on ECS Fargate**.
 
-* Docker image builds
-* Container testing
-* ECR image push
-* ECS deployment updates
+![GitHub Actions Pipeline](Screenshots/CICD%20Pipeline%20with%20GitHub%20Actions/github-actions-success.png)
 
-(Add GitHub Actions screenshot here)
-
----
-
-# Security Best Practices
-
-* Environment variables stored securely
-* Secrets managed with GitHub Secrets
-* IAM least privilege permissions
-* No hardcoded credentials
-* Dockerized isolated environment
+### Security & Observability
+* **Zero Hardcoded Credentials:** Secrets injected via GitHub Secrets & IAM Least Privilege policies.
+* **Centralized Logs:** Operational and container logs streamed directly to AWS CloudWatch.
 
 ---
 
-# Monitoring & Logging
+# 🎯 Key Takeaways & Roadmap
 
-* CloudWatch Logs integration
-* ECS service monitoring
-* Application logging
-* Deployment visibility
-
----
-
-# Lessons Learned
-
-During this project I improved my understanding of:
-
-* AWS cloud architecture
-* Container orchestration with ECS
-* Infrastructure as Code with Terraform
-* CI/CD automation workflows
-* Secure cloud deployments
-* AI API integrations
-* Monitoring and troubleshooting cloud applications
+| 💡 Core Learnings | 🔮 Future Enhancements |
+| :--- | :--- |
+| • Infrastructure as Code with Terraform | • SSL/TLS Encryption via AWS Certificate Manager (ACM) |
+| • Container orchestration via ECS Fargate | • Custom Domain routing via Amazon Route 53 |
+| • End-to-end CI/CD automation & pipeline security | • Native AI model integration via AWS Bedrock |
 
 ---
 
-# Future Improvements
+# 👤 Author
 
-* HTTPS with ACM
-* Custom domain with Route53
-* Authentication system
-* Multi-language resume analysis
-* AI interview preparation assistant
-* Kubernetes migration
-* AWS Bedrock integration
-
----
-
-# Author
-
-Nahuel Egidi
-
-* GitHub: https://github.com/senahuel33-design/AI-Resume-Analyzer-on-AWS
-* LinkedIn: https://www.linkedin.com/in/nahuel-egidi-21b8202aa/
+**Nahuel Egidi**  
+🔗 [GitHub Profile](https://github.com/senahuel33-design) | 💼 [LinkedIn Profile](https://www.linkedin.com/in/nahuel-egidi-21b8202aa/)
